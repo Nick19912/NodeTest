@@ -1,35 +1,39 @@
-const redis = require("redis");
-var crypto = require('crypto')
 
-const redisPort = 6379
-const redisClient = redis.createClient(redisPort);
+const redis = require('redis');
+const client = redis.createClient();
+const fs = require('fs');
 
-exports.saveNewUser = async function(body) {
-    console.log("Saving Body")
-    console.log(body);
-    var name = 'user';
-    var hash = crypto.createHash('md5').update(name).digest('hex');
-    redisClient.setEx(hash, 3600, body);
-
-    console.log("Saving Body Complete")
-    return "Saved";
+exports.save = async function(body) {
+    await client.connect();
+    for (const [key, value] of Object.entries(body)) {
+        client.set(`${key}`, `${value}`);
+    } 
+    await client.quit();
 };
 
 exports.createCard = async function(body) {
-    const page = `
-    <!DOCTYPE html>
-    <html lang="en">
-       
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content=
-            "width=device-width, initial-scale=1.0">
-    </head>
-       
-    <body>
-        <h1>Hello World</h1>
-    </body>
-       
-    </html>`
-    return (page);
+    fs.readFile('frontend/index.html', function (err, html) {
+        if (err) {
+            throw err; 
+        }       
+        console.log(html);
+    });
+
+    return '<h1>Hello World!</h1>';
 };
+
+exports.getUserDetails = async function() {
+    console.log("In getUserDetails")
+    await client.connect();
+    let array = [];
+
+    let keys = client.keys('*');
+
+    (await keys).map(async (key)=> {
+        array[key] = await client.get(key);
+    })
+
+    await client.quit();
+    console.log(array);
+    return array;
+}

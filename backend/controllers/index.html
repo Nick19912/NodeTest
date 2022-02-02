@@ -5,27 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Live hCard Preview</title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet" >
-    <link href="css/main.css" rel="stylesheet">
   </head>
 
   <body>
     <div class="HcardApp" />
-    <script src="https://unpkg.com/react@15/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
-    <script src="main.js"></script>
+    <h1>TODO: Fix screen</h1>
+
     <script>
       (function() {
 
-        let response = fetch('http://localhost:3000/getUser')
-        .then(res => {
-          console.log(res)
-        })
-        .catch(error => {
-         console.log("Error: ", error)
-        });
-        
         var hCardProps = {
           givenName: 'Sam',
           surname: 'Fairfax',
@@ -39,14 +27,6 @@
           country: 'Australia'
         };
 
-        ReactDOM.render(
-          React.createElement(
-            window.hCard.default,
-            hCardProps
-          ),
-          document.querySelector('.HcardApp')
-        );
-      
       })();
     </script>
   </body>

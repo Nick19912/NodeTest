@@ -27,12 +27,17 @@ You can see how it executes by loading up the `index.html` file in your browser.
 
 Build a node server which;
 
-* Serves up the SPA
+* DONE - Serves up the SPA
+* DONE - Decode x-www-form-urlencoded body
 * Server renders the SPA to support non-JS clients
-* Saves user inputed data to the server as they switch between form fields
-* Saves completed form data on user submission
+* DONE - Saves user inputed data to the server as they switch between form fields
+* DONE - Saves completed form data on user submission
 * On page reload, populates the form fields with the values previous saved
-* Is stateless, to support auto-scaling
+* DONE - Is stateless, to support auto-scaling
+* DONE - CORS error in console
+* Create unit tests
+* Upload images
+* Return Body to frontend (CORS seems to be blocking it)
 
 User data should be saved into a store or database
 that could in the future be accessed by any number of running servers.
