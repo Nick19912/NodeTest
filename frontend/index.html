@@ -16,28 +16,33 @@
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
     <script src="main.js"></script>
     <script>
-      (function() {
+      (async function() {
 
-        let response = fetch('http://localhost:3000/getUser')
-        .then(res => {
-          console.log(res)
+        let hCardProps;
+        let response = await fetch('http://localhost:3000/getUser')
+        .then(res=>res.json())
+        .then(data=>{ 
+          if(data != null){
+            hCardProps = data; 
+          }else{
+            hCardProps = {
+              givenName: 'Sam',
+              surname: 'Fairfax',
+              email: 'sam.fairfax@fairfaxmedia.com.au',
+              phone: '0292822833',
+              houseNumber: '100',
+              street: 'Harris Street',
+              suburb: 'Pyrmont',
+              state: 'NSW',
+              postcode: '2009',
+              country: 'Australia'
+            };
+          }
+          
         })
         .catch(error => {
          console.log("Error: ", error)
         });
-        
-        var hCardProps = {
-          givenName: 'Sam',
-          surname: 'Fairfax',
-          email: 'sam.fairfax@fairfaxmedia.com.au',
-          phone: '0292822833',
-          houseNumber: '100',
-          street: 'Harris Street',
-          suburb: 'Pyrmont',
-          state: 'NSW',
-          postcode: '2009',
-          country: 'Australia'
-        };
 
         ReactDOM.render(
           React.createElement(
@@ -46,7 +51,6 @@
           ),
           document.querySelector('.HcardApp')
         );
-      
       })();
     </script>
   </body>
