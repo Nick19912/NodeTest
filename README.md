@@ -6,9 +6,10 @@ Extract the `Redis.zip` folder in the root folder.<br />
 
 ## Start application 
 1) Start Redis by executing `Redis/redis-server.exe`.<br />
-2) Run `npm run start` to start server in SSR OR run `npm run dev` to start in development mode.<br />
-3) Navigate to `http://localhost:3000/`.<br />
-
+2) Run `npm install` to install node modules.<br />
+3) Run `npm run start` to start server in SSR OR run `npm run dev` to start in development mode.<br />
+4) Navigate to `http://localhost:3000/`.<br />
+ 
 ## Run unit tests
 Run `npm run test` to start unit tests.
 
