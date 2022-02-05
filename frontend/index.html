@@ -19,10 +19,11 @@
       (async function() {
 
         let hCardProps;
+        //Get data from server else load defaults
         let response = await fetch('http://localhost:3000/getUser')
         .then(res=>res.json())
         .then(data=>{ 
-          if(data != null){
+          if(Object.keys(data).length !== 0){
             hCardProps = data; 
           }else{
             hCardProps = {
@@ -41,7 +42,21 @@
           
         })
         .catch(error => {
-         console.log("Error: ", error)
+          //Display error page to user + Print in console
+          var header = document.createElement("header"),
+          h4 = document.createElement("h1");
+          error = document.createElement("p");
+
+          h4.textContent = "Error on server";
+          error.textContent = "Check console log for more detail";
+
+          header.appendChild(h4);
+          header.appendChild(error);
+
+          document.body.appendChild(header);
+          document.getElementById("HcardApp").appendChild(header);
+
+          console.log("Error: ", error);
         });
 
         ReactDOM.render(

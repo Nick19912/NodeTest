@@ -29,14 +29,15 @@ Build a node server which;
 
 * DONE - Serves up the SPA
 * DONE - Decode x-www-form-urlencoded body
-* Server renders the SPA to support non-JS clients
+* DONE - Server renders the SPA to support non-JS clients
 * DONE - Saves user inputed data to the server as they switch between form fields
 * DONE - Saves completed form data on user submission
 * DONE - On page reload, populates the form fields with the values previous saved
 * DONE - Is stateless, to support auto-scaling
 * DONE - CORS error in console
-* TBC - Test Upload images
-* DONE - reate unit tests
+* DONE - Create unit tests
+* DONE - Create use case for server not running or Redis down
+* NOT REQUIRED - Upload images not working
 
 User data should be saved into a store or database
 that could in the future be accessed by any number of running servers.

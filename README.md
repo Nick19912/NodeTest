@@ -1,14 +1,23 @@
 # NodeTest
 
 ## Requirements
-Node Version `14.18.2`
-Install Redis
-    1) Download Redis at https://redis.io/download
-    2) Extract files. 
-    3. Run Redis server manaully (for testing). Redis will start on default port 6379.
+Node Version `14.18.2`.
+Extract the `Redis.zip` folder in the root folder.
 
-## Start application
-run `npm run start` to start server or run `npm run dev` to start in development
+## Start application 
+Start Redis by executing `Redis/redis-server.exe`.
+Run `npm run start` to start server in SSR OR run `npm run dev` to start in development mode.
+Navigate to `http://localhost:3000/`.
 
-# Run unit tests
-run `npm test` to start unit tests
+## Run unit tests
+Run `npm run test` to start unit tests.
+
+## Challanges
+Below is a list of challenges faced:
+* CORs issue on Update request.
+* Get user details was tricky and ended up making slight adjustment to the index.html for a new endpoint.
+* Had to downgrade to React v15 due to hyrdate not being available / no access to frontend code. 
+* Had to down babel v7 due to error `regeneratorRuntime is not defined`. 
+* Images not sending to server.
+
+Total time spend: 10h (4h SSR, 3h Redis, 3h Setup)

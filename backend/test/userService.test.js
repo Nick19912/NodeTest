@@ -2,30 +2,65 @@ const { isNull, save, createCard, getUserDetails } = require('../service/userSer
 const mock = require('redis-mock');
 const client = mock.createClient();
 
-
-
 describe("userService", () => {
     jest.mock('redis', () => mock)
 
     test('isNull', (done) => {
         expect(isNull(null)).toBe(true)
-        expect(isNull({name: "Nick"})).toBe(false)
-        done()
+        expect(isNull({
+            givenName: 'Sam',
+            surname: 'Fairfax',
+            email: 'sam.fairfax@fairfaxmedia.com.au',
+            phone: '0292822833',
+            houseNumber: '100',
+            street: 'Harris Street',
+            suburb: 'Pyrmont',
+            state: 'NSW',
+            postcode: '2009',
+            country: 'Australia'
+        })).toBe(false)
+
+        done();
     })
 
-    test('save', (done) => {
-        expect(save({name: "Nick"})).resolves.toBe(true)
-        expect(save(null)).resolves.toBe(false)
-        done()
+    it('save', async () => {
+        //Save with data
+        await expect(save({givenName: "Nick"})).resolves.toBe(true)
+        await expect(save(
+            {
+                givenName: 'Sam',
+                surname: 'Fairfax',
+                email: 'sam.fairfax@fairfaxmedia.com.au',
+                phone: '0292822833',
+                houseNumber: '100',
+                street: 'Harris Street',
+                suburb: 'Pyrmont',
+                state: 'NSW',
+                postcode: '2009',
+                country: 'Australia'
+            }
+        )).resolves.toBe(true)
+
+        //Save without data
+        await expect(save({givenName: null})).resolves.toBe(true)
+        await expect(save(
+            {
+                givenName: null,
+                surname: null,
+                email: null,
+                phone: null,
+                houseNumber: null,
+                street: null,
+                suburb: null,
+                state: null,
+                postcode: null,
+                country: null
+            }
+        )).resolves.toBe(true)
+        await expect(save(null)).resolves.toBe(false)
     })
     
-    test('createCard', (done) => {
-        expect(createCard({name: "Nick"})).resolves.toBe()
-        done()
-    })
-    
-    test('getUserDetails', (done) => {
+    it('getUserDetails', async () => {
         expect(getUserDetails()).toEqual(expect.anything())
-        done()
     })
 })
