@@ -21,4 +21,4 @@ Below is a list of challenges faced:
 * Had to down babel v7 due to error `regeneratorRuntime is not defined`. 
 * Images not sending to server.
 
-Total time spend: 10h (4h SSR, 3h Redis, 3h Setup)
+Total time spend: 7h (3h SSR, 2h Redis, 2h Setup)
