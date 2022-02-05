@@ -17,8 +17,8 @@ Run `npm run test` to start unit tests.
 Below is a list of challenges faced:
 * CORs issue on Update request.
 * Get user details was tricky and ended up making slight adjustment to the index.html for a new endpoint.
-* Had to downgrade to React v15 due to hyrdate not being available / no access to frontend code. 
+* Had to downgrade to React v15 due to hyrdate not being available / no access to frontend code + prop-type issues on import of js file.
 * Had to down babel v7 due to error `regeneratorRuntime is not defined`. 
 * Images not sending to server.
 
-Total time spend: 7h (3h SSR, 2h Redis, 2h Setup)
+Total time spend: 10hr (3hr SSR, 2hr Redis, 2hr Setup, 1hr Unit Testing, 2hr troubleshooting)
