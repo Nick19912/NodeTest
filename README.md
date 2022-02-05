@@ -1,13 +1,13 @@
 # NodeTest
 
 ## Requirements
-Node Version `14.18.2`.
-Extract the `Redis.zip` folder in the root folder.
+Node Version `14.18.2`.<br />
+Extract the `Redis.zip` folder in the root folder.<br />
 
 ## Start application 
-Start Redis by executing `Redis/redis-server.exe`.
-Run `npm run start` to start server in SSR OR run `npm run dev` to start in development mode.
-Navigate to `http://localhost:3000/`.
+Start Redis by executing `Redis/redis-server.exe`.<br />
+Run `npm run start` to start server in SSR OR run `npm run dev` to start in development mode.<br />
+Navigate to `http://localhost:3000/`.<br />
 
 ## Run unit tests
 Run `npm run test` to start unit tests.
